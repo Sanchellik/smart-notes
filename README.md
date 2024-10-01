@@ -1,0 +1,3 @@
+# Smart Notes Application
+
+Will be soon...
