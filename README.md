@@ -166,7 +166,7 @@ docker compose down --volumes --remove-orphans
 The **Smart Notes** application uses Spring Boot Actuator for health monitoring.
 You can check the health status of the application by accessing the following endpoint:
 ```bash
-curl 'http://localhost:$PORT/actuator/health'
+curl "http://localhost:$PORT/actuator/health"
 ```
 
 This will return the current health status of the application,
@@ -184,10 +184,11 @@ To check the availability of the PostgreSQL database, you can use the `pg_isread
 utility inside the database container (this command comes pre-installed with PostgreSQL).
 Run the following command:
 ```bash
-docker exec -it postgres pg_isready -U $POSTGRES_USERNAME
+docker exec -it smart-notes-postgres pg_isready -U $POSTGRES_USERNAME
 ```
 
-If the database is operational, the response will be `accepting connections`.
+If the database is operational, the response will be
+`/var/run/postgresql:5432 - accepting connections`.
 If not, connection errors will be displayed.
 
 

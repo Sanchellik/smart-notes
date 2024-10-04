@@ -27,7 +27,7 @@ services:
 
   db:
     image: postgres:16.4-alpine
-    container_name: postgres
+    container_name: smart-notes-postgres
     networks:
       - smart-notes-app-network
     environment:
