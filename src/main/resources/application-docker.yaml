@@ -1,12 +1,5 @@
 spring:
-  application:
-    name: smart-notes
-  config:
-    import: optional:file:.env[.properties]
   datasource:
-    url: jdbc:postgresql://db:5432/${POSTGRES_DATABASE}?currentSchema=${POSTGRES_SCHEMA}
+    url: jdbc:postgresql://db:${POSTGRES_PORT}/${POSTGRES_DATABASE}?currentSchema=${POSTGRES_SCHEMA}
     username: ${POSTGRES_USERNAME}
     password: ${POSTGRES_PASSWORD}
-    driver-class-name: org.postgresql.Driver
-  liquibase:
-    enabled: false
