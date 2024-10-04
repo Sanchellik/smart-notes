@@ -70,13 +70,17 @@ Before you start, ensure that the following dependencies are installed:
 You'll need a `.env` file for environment-specific configuration. Here's an example:
 
 ```dotenv
+HOST=localhost
 PORT=8080
-POSTGRES_PORT=5432
+
 POSTGRES_DATABASE=smart_notes
+POSTGRES_PORT=5432
 POSTGRES_USERNAME=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_SCHEMA=public
 ```
+
+> You may use `dotenv` util for convenient use environment variables in project
 
 
 
@@ -127,7 +131,7 @@ mvn clean install
 mvn spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
-The app will be accessible on `http://localhost:${PORT}`.
+The app will be accessible on `http://localhost:$PORT`.
 
 ### Running Using Docker
 1. Build and start the application using Docker Compose (use -d if u don't want to block terminal thread):
@@ -142,7 +146,7 @@ docker compose up --build -d
 docker compose up --build
 ```
 
-2. The application will be running inside a Docker container and will be accessible on `http://localhost:${PORT}` (specified in your `.env` file).
+2. The application will be running inside a Docker container and will be accessible on `http://localhost:$PORT` (specified in your `.env` file).
 
 3. Stopping the application:
 ```bash
@@ -155,13 +159,14 @@ docker compose down --volumes --remove-orphans
 ```
 
 
+
 ## Health Checks
 
 ### Application
 The **Smart Notes** application uses Spring Boot Actuator for health monitoring.
 You can check the health status of the application by accessing the following endpoint:
 ```bash
-curl 'http://localhost:${PORT}/actuator/health'
+curl 'http://localhost:$PORT/actuator/health'
 ```
 
 This will return the current health status of the application,
@@ -179,7 +184,7 @@ To check the availability of the PostgreSQL database, you can use the `pg_isread
 utility inside the database container (this command comes pre-installed with PostgreSQL).
 Run the following command:
 ```bash
-docker exec -it postgres pg_isready -U ${POSTGRES_USERNAME}
+docker exec -it postgres pg_isready -U $POSTGRES_USERNAME
 ```
 
 If the database is operational, the response will be `accepting connections`.
@@ -203,7 +208,7 @@ mvn test
 
 ### Common Issues
 - **PostgreSQL connection errors**: Ensure that PostgreSQL is running and the credentials match those in the `.env` file.
-- **Docker port conflicts**: If the port is already in use, change the `${PORT}` in the `.env` file.
+- **Docker port conflicts**: If the port is already in use, change the `PORT` in the `.env` file.
 
 ### Logs
 - View Docker logs:
