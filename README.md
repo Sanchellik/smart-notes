@@ -67,7 +67,17 @@ Before you start, ensure that the following dependencies are installed:
 - Docker & Docker Compose
 
 ### Environment Variables
-You'll need a `.env` file for environment-specific configuration. Here's an example:
+You'll need a `.env` file for environment-specific configuration.
+There are environment variables:
+1. `HOST` - host of PostgreSQL database
+2. `PORT` - app server port
+3. `POSTGRES_DATABASE` - name of PostgreSQL database
+4. `POSTGRES_PORT` - local port of PostgreSQL database
+5. `POSTGRES_USERNAME` - name of PostgreSQL user
+6. `POSTGRES_DATABASE` - password for PostgreSQL user
+7. `POSTGRES_SCHEMA` - name of PostgreSQL scheme
+
+Here's an example:
 
 ```dotenv
 HOST=localhost
